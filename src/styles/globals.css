@@ -16,7 +16,6 @@
   }
 }
 
-/* Body styling using regular CSS */
 body {
   background-color: var(--background);
   color: var(--foreground);
@@ -26,7 +25,6 @@ body {
   line-height: 1.625;
 }
 
-/* Tailwind-based component styling */
 header {
   @apply bg-green-500 text-white text-center p-5;
 }
@@ -134,7 +132,6 @@ footer ul li a {
   @apply text-white no-underline hover:text-green-500;
 }
 
-/* Mobile adjustments */
 @media (max-width: 600px) {
   header h1 {
     @apply text-2xl;
@@ -152,4 +149,3 @@ footer ul li a {
     @apply my-2;
   }
 }
-
