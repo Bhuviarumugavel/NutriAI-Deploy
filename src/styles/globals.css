@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Theme Variables */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-sans: 'Inter', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Body styling using regular CSS */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  line-height: 1.625;
+}
+
+/* Tailwind-based component styling */
+header {
+  @apply bg-green-500 text-white text-center p-5;
+}
+
+header h1 {
+  @apply text-3xl font-bold;
+}
+
+header p {
+  @apply mt-1 text-lg;
+}
+
+nav {
+  @apply bg-gray-800 p-3;
+}
+
+nav ul {
+  @apply flex justify-center flex-wrap list-none p-0 m-0;
+}
+
+nav ul li {
+  @apply mx-4;
+}
+
+nav ul li a {
+  @apply text-white no-underline text-base hover:text-green-500;
+}
+
+main {
+  @apply max-w-4xl mx-auto p-5;
+}
+
+section {
+  @apply mb-8;
+}
+
+h2 {
+  @apply text-green-500 text-xl text-center mb-4;
+}
+
+h2 i {
+  @apply mr-2;
+}
+
+.feature-grid,
+.testimonial-grid,
+.food-list {
+  @apply grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3;
+}
+
+.feature-item,
+.testimonial-item,
+.food-card {
+  @apply bg-white p-4 rounded shadow text-center transition-transform duration-200;
+}
+
+.food-card:hover {
+  @apply -translate-y-1;
+}
+
+.feature-icon {
+  @apply text-2xl text-green-500 mb-2;
+}
+
+.feature-item h3,
+.testimonial-item h3,
+.food-card h3 {
+  @apply text-lg font-semibold mb-2 text-gray-800;
+}
+
+.testimonial-item p,
+.food-card p {
+  @apply italic text-gray-600 text-sm;
+}
+
+ol {
+  @apply max-w-md mx-auto mb-4 pl-5 list-decimal;
+}
+
+ol li {
+  @apply mb-2;
+}
+
+.cta-button {
+  @apply inline-block px-6 py-3 bg-green-500 text-white text-lg rounded hover:bg-green-600 transition;
+}
+
+footer {
+  @apply bg-gray-800 text-white p-4 text-center;
+}
+
+footer p {
+  @apply m-0;
+}
+
+footer ul {
+  @apply flex justify-center list-none mt-3 p-0;
+}
+
+footer ul li {
+  @apply mx-2;
+}
+
+footer ul li a {
+  @apply text-white no-underline hover:text-green-500;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  header h1 {
+    @apply text-2xl;
+  }
+
+  header p {
+    @apply text-base;
+  }
+
+  nav ul {
+    @apply flex-col items-center;
+  }
+
+  nav ul li {
+    @apply my-2;
+  }
+}
+
