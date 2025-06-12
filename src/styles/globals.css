@@ -149,8 +149,6 @@ footer ul li a {
     @apply my-2;
   }
 }
-<<<<<<< HEAD
-=======
 
 header {
   @apply bg-green-500 text-white text-center p-5;
@@ -276,4 +274,3 @@ footer ul li a {
     @apply my-2;
   }
 }
->>>>>>> a62255d (Fix: switch to next.config.js for Vercel deployment)
