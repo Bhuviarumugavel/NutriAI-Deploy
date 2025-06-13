@@ -1,15 +1,16 @@
 import React from 'react';
 
-const HowItWorks = () => (
-  <section id="how-it-works" className="section">
-    <h2>How It Works</h2>
-    <ol>
-      <li>Enter your food intake</li>
-      <li>NutriAI analyzes your diet</li>
-      <li>Get personalized recommendations</li>
-      <li>Track and improve over time</li>
-    </ol>
-  </section>
-);
+const HowItWorks = () => {
+  return (
+    <div className="mt-10 p-4 bg-gray-100 rounded-xl">
+      <h2 className="text-xl font-semibold mb-4">How It Works</h2>
+      <ol className="list-decimal list-inside space-y-2">
+        <li>Enter your food or activity</li>
+        <li>NutriAI calculates your remaining nutrition</li>
+        <li>Get personalized suggestions</li>
+      </ol>
+    </div>
+  );
+};
 
 export default HowItWorks;

@@ -1,9 +1,7 @@
-import React from 'react';
-
-const Footer = () => (
-  <footer className="footer">
-    <p>© {new Date().getFullYear()} NutriAI. All rights reserved.</p>
-  </footer>
-);
-
-export default Footer;
+export default function Footer() {
+  return (
+    <footer className="bg-green-700 text-white text-center py-4 mt-10">
+      <p>&copy; 2025 NutriAI Advisor. All rights reserved.</p>
+    </footer>
+  );
+}

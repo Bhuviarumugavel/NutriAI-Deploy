@@ -1,33 +1,47 @@
-export default function Home() {
-  return (
-    <div className="min-h-screen bg-green-100 text-gray-800 font-sans">
-      <header className="bg-green-600 text-white py-10 shadow-lg">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold">NutriAI Advisor</h1>
-          <p className="mt-3 text-lg">Your smart nutrition assistant</p>
-        </div>
-      </header>
+// pages/index.js
+import React from 'react';
+import { useRouter } from 'next/router';
 
-      <main className="max-w-3xl mx-auto p-6 mt-10 bg-white rounded-2xl shadow-md">
-        <h2 className="text-3xl font-semibold text-green-700 mb-4">Welcome to NutriAI</h2>
-        <p className="text-lg mb-4">
-          NutriAI helps you track your meals and activities and recommends the best foods to meet your nutritional goals.
+const HomePage = () => {
+  const router = useRouter();
+
+  return (
+    <div className="min-h-screen flex flex-col justify-between bg-green-50">
+      {/* Centered Content */}
+      <main className="flex-grow flex flex-col items-center justify-center text-center px-4">
+        <h1 className="text-4xl sm:text-5xl font-bold text-green-900 mb-4">
+          NutriAI Advisor
+        </h1>
+
+        <p className="text-lg sm:text-xl text-gray-700 mb-6">
+          Welcome to NutriAI Advisor, your smart dietary companion.
         </p>
 
-        <div className="bg-green-50 border-l-4 border-green-500 p-4 mb-6 rounded">
-          <p className="text-green-700 font-medium">
-            Start by entering what you've eaten today, and NutriAI will suggest what to eat next!
-          </p>
-        </div>
-
-        <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg text-lg transition">
+        <button
+          className="bg-green-700 hover:bg-green-800 text-white font-semibold px-8 py-3 rounded-lg shadow-lg transition duration-300 mb-8"
+          onClick={() => router.push('/tracker')}
+        >
           Get Started
+        </button>
+
+        <p className="font-semibold text-md text-gray-800 mb-2">
+          To know more about this app
+        </p>
+
+        <button
+          className="bg-white hover:bg-green-100 text-green-800 border border-green-600 font-semibold px-6 py-2 rounded-md shadow-md transition duration-300"
+          onClick={() => router.push('/about')}
+        >
+          About
         </button>
       </main>
 
-      <footer className="text-center mt-10 text-sm text-gray-600">
-        &copy; {new Date().getFullYear()} NutriAI. All rights reserved.
+      <footer className="bg-green-800 text-white text-center text-sm py-4">
+        <p>© 2025 NutriAI Advisor. All rights reserved.</p>
+        <p>Created by Bhuvaneshwari A</p>
       </footer>
     </div>
   );
-}
+};
+
+export default HomePage;
