@@ -1,45 +1,43 @@
-// pages/tracker.js
-import React from 'react';
+import React, { useState } from 'react';
 
-const Tracker = () => {
+export default function Tracker() {
+  const [userInput, setUserInput] = useState('');
+  const [response, setResponse] = useState('');
+
+  const handleSend = async () => {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userMessage: userInput })
+    });
+    const data = await res.json();
+    setResponse(data.reply);
+  };
+
   return (
-    <div className="min-h-screen bg-green-50 flex items-center justify-center px-6 py-12">
-      <div className="max-w-xl w-full bg-white p-8 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold text-green-900 mb-6 text-center">Start Your Journey</h2>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-green-50 p-6">
+      <h1 className="text-3xl font-bold text-green-800 mb-6">Nutrition Analyzer</h1>
+      <textarea
+        className="w-full max-w-xl h-32 p-4 border rounded shadow"
+        placeholder="Describe your meal or condition..."
+        value={userInput}
+        onChange={(e) => setUserInput(e.target.value)}
+      />
+      <button
+        className="mt-4 bg-green-700 text-white px-6 py-2 rounded shadow"
+        onClick={handleSend}
+      >
+        Analyze
+      </button>
 
-        <form className="space-y-4">
-          <input type="text" placeholder="Name" className="w-full p-2 border rounded" />
-          <input type="number" placeholder="Age" className="w-full p-2 border rounded" />
-
-          <select className="w-full p-2 border rounded">
-            <option value="">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-
-          <select className="w-full p-2 border rounded">
-            <option value="normal">Normal</option>
-            <option value="condition">Health Condition (Specify Below)</option>
-          </select>
-          <input type="text" placeholder="Specify Disease (if any)" className="w-full p-2 border rounded" />
-
-          <div className="text-sm text-gray-600">Upload meal via:</div>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <input type="text" placeholder="Meal as text" className="flex-1 p-2 border rounded" />
-            <input type="file" accept="image/*" className="flex-1 p-2 border rounded" />
-            <button className="flex-1 p-2 bg-green-600 text-white rounded">Voice Input</button>
-          </div>
-
-          <button type="submit" className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-3 rounded-lg mt-6">
-            Submit
-          </button>
-        </form>
-      </div>
+      {response && (
+        <div className="mt-8 bg-white p-6 rounded shadow max-w-xl w-full">
+          <h2 className="text-xl font-semibold text-green-800 mb-2">AI Response:</h2>
+          <p>{response}</p>
+        </div>
+      )}
     </div>
   );
-};
-
-export default Tracker;
+}
 
 
