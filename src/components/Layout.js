@@ -1,12 +1,13 @@
-// src/components/Layout.js
-import React from 'react';
-import Nav from './Nav';
+import { Analytics } from '@vercel/analytics/react';
 
-const Layout = ({ children }) => (
-  <>
-    <Nav />
-    <main>{children}</main>
-  </>
-);
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        <Analytics />
+      </body>
+    </html>
+  );
+}
 
-export default Layout;

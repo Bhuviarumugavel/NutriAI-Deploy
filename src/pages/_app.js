@@ -1,12 +1,14 @@
-import '../styles/globals.css'; // tailwind styles
-import Layout from '../components/Layout';
+// pages/_app.js
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
+    <>
       <Component {...pageProps} />
-    </Layout>
+      <Analytics /> {/* This enables Vercel analytics tracking */}
+    </>
   );
 }
 
 export default MyApp;
+

@@ -9,18 +9,18 @@ cloudinary.config({
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { image } = req.body;
+      const { file } = req.body;
 
-      const uploadedResponse = await cloudinary.uploader.upload(image, {
+      const uploadResponse = await cloudinary.uploader.upload(file, {
         folder: 'nutriai_uploads',
       });
 
-      res.status(200).json({ url: uploadedResponse.secure_url });
+      res.status(200).json({ url: uploadResponse.secure_url });
     } catch (error) {
-      console.error('Upload error:', error);
       res.status(500).json({ error: 'Upload failed' });
     }
   } else {
     res.status(405).json({ error: 'Method not allowed' });
   }
 }
+
